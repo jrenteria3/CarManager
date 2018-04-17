@@ -26,20 +26,14 @@ public class CarManager {
 		x.readFile();
 		x.closeFile();
 		
-		System.out.println(Class_ll);
-		System.out.println(Make_ll);
-		System.out.println(Model_ll);
-		System.out.println(Cyl_ll);
-		System.out.println(Trans_ll);
-		System.out.println(Drive_ll);
-		System.out.println(City_ll);
-		System.out.println(Highway_ll);
-		System.out.println(CMB_ll);
-		System.out.println(Fcost_ll);
-		System.out.println(Type_ll);
 		
+		x.printTest();
 		x.getIndexPrint(56);
 		
+		x.collectionsSort();
+		
+		x.printTest();
+		x.getIndexPrint(56);
 	}
 	 
 	
@@ -51,6 +45,21 @@ public class CarManager {
  * 
  * 
  */
+	
+public void printTest() {
+	System.out.println(Class_ll);
+	System.out.println(Make_ll);
+	System.out.println(Model_ll);
+	System.out.println(Cyl_ll);
+	System.out.println(Trans_ll);
+	System.out.println(Drive_ll);
+	System.out.println(City_ll);
+	System.out.println(Highway_ll);
+	System.out.println(CMB_ll);
+	System.out.println(Fcost_ll);
+	System.out.println(Type_ll);
+}
+	
 public void getIndexPrint(int x) {
 	
 	System.out.println(Class_ll.get(x));
@@ -75,6 +84,14 @@ public void getIndexPrint(int x) {
  *  END TEST METHODS 
  */
 	
+
+public void collectionsSort() {
+	
+	Collections.sort(Type_ll);
+	//System.out.println(Type_ll);
+	
+}
+
 public void openFile(){
 		
 		try{
