@@ -26,14 +26,35 @@ public class CarManager {
 		x.readFile();
 		x.closeFile();
 		
-		
-		x.printTest();
-		x.getIndexPrint(56);
-		
 		x.collectionsSort();
 		
 		x.printTest();
 		x.getIndexPrint(56);
+		
+		x.findClass("COMPACT-CARS");
+		/*
+		System.out.println(Class_ll.indexOf("COMPACT-CARS"));
+		System.out.println(Class_ll.indexOf("MIDSIZE-CARS"));
+		
+		int a;
+		int b;
+		int c;
+		
+		a = Class_ll.indexOf("COMPACT-CARS")+1;
+		b = Class_ll.indexOf("MIDSIZE-CARS");
+		c = b-a;
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		
+		for(int i = a; i<b;i++) {
+			System.out.println(Make_ll.get(i) + " " + Model_ll.get(i) + " " + Trans_ll.get(i));
+			
+			
+		}
+		*/
+		
+		
 	}
 	 
 	
@@ -74,7 +95,7 @@ public void getIndexPrint(int x) {
 	System.out.println(Fcost_ll.get(x));
 	System.out.println(Type_ll.get(x));
 	
-		
+	
 }
 	
 
@@ -85,12 +106,64 @@ public void getIndexPrint(int x) {
  */
 	
 
+/*
+ * 
+ * 
+ *  Search and Sort
+ * 
+ * 
+ */
+
+
+
+
 public void collectionsSort() {
 	
 	Collections.sort(Type_ll);
 	//System.out.println(Type_ll);
 	
 }
+
+
+public void findClass(String x) {
+	
+	int a;
+	int b;
+	int c;
+	//a = Class_ll.indexOf("COMPACT-CARS")+1;
+	//b = Class_ll.indexOf("MIDSIZE-CARS");
+	//c = b-a;
+	int numMake = 0;
+	
+		for(String mclass : Class_ll) {
+			if(mclass.contains(x)) {
+				a = Class_ll.indexOf(x)+1; 
+				b = Class_ll.indexOf("MIDSIZE-CARS");
+				//CHANGE TO TYPE-LL FOR +1 
+				System.out.println(mclass + mclass.indexOf(x));
+				
+				//for(int i = a; i<b;i++) {
+				//	System.out.println(Make_ll.get(i) + " " + Model_ll.get(i) + " " + Trans_ll.get(i));
+					
+					
+				//}
+				numMake++;
+			} 
+		} 
+	System.out.println("Num of Cars: " + numMake);
+	
+}
+
+/*
+ * 
+ * 
+ * 	FILE METHODS
+ * 
+ * 
+ */
+
+
+
 
 public void openFile(){
 		
