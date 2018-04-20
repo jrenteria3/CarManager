@@ -17,7 +17,7 @@ public class CarManager {
 	public static LinkedList<Integer> CMB_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> Fcost_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> Type_ll = new LinkedList<Integer>();
-	
+	public static LinkedList<String> Range_ll = new LinkedList<String>();
 	public static void main(String[] args) {
 		
 		CarManager x = new CarManager(); 
@@ -28,34 +28,19 @@ public class CarManager {
 		
 		x.collectionsSort();
 		
-		x.printTest();
-		x.getIndexPrint(56);
+		//x.printTest();
+		//x.getIndexPrint(56);
 		
-		x.findClass("COMPACT-CARS");
-		/*
-		System.out.println(Class_ll.indexOf("COMPACT-CARS"));
-		System.out.println(Class_ll.indexOf("MIDSIZE-CARS"));
+		//x.findClass("SEDAN");
 		
-		int a;
-		int b;
-		int c;
+		x.findCars("COMPACT-CAR", "HONDA", "AUTO");
 		
-		a = Class_ll.indexOf("COMPACT-CARS")+1;
-		b = Class_ll.indexOf("MIDSIZE-CARS");
-		c = b-a;
-		System.out.println(a);
-		System.out.println(b);
-		System.out.println(c);
+		x.filterMPG("COMPACT-CAR", "HONDA", "AUTO", 19);
 		
-		for(int i = a; i<b;i++) {
-			System.out.println(Make_ll.get(i) + " " + Model_ll.get(i) + " " + Trans_ll.get(i));
-			
-			
-		}
-		*/
-		
+		x.findRange();
 		
 	}
+	
 	 
 	
 /*
@@ -116,43 +101,130 @@ public void getIndexPrint(int x) {
 
 
 
-
+/*
+ *  Sorting Method: Merge Sort
+ *  	We used the built in Collection Merge Sort to save space
+ */
 public void collectionsSort() {
 	
 	Collections.sort(Type_ll);
-	//System.out.println(Type_ll);
 	
 }
 
-
+/*
+ *  Search for Class
+ */
 public void findClass(String x) {
 	
 	int a;
 	int b;
-	int c;
-	//a = Class_ll.indexOf("COMPACT-CARS")+1;
-	//b = Class_ll.indexOf("MIDSIZE-CARS");
-	//c = b-a;
-	int numMake = 0;
+	int c= 0;
+
+	a = Class_ll.indexOf(x); 
+	b = Class_ll.lastIndexOf(x)+1;
 	
-		for(String mclass : Class_ll) {
-			if(mclass.contains(x)) {
-				a = Class_ll.indexOf(x)+1; 
-				b = Class_ll.indexOf("MIDSIZE-CARS");
-				//CHANGE TO TYPE-LL FOR +1 
-				System.out.println(mclass + mclass.indexOf(x));
+	int numMake = 0;
 				
-				//for(int i = a; i<b;i++) {
-				//	System.out.println(Make_ll.get(i) + " " + Model_ll.get(i) + " " + Trans_ll.get(i));
-					
-					
-				//}
-				numMake++;
-			} 
-		} 
-	System.out.println("Num of Cars: " + numMake);
+		for(int i=a; i<b; i++) {
+			c++;
+			System.out.println(c + ": " + Make_ll.get(i) + " " + Model_ll.get(i) + " " + Trans_ll.get(i));
+			numMake++;	
+		}
+ 
+	System.out.println("Num of Cars: " + x + "s " + numMake);
 	
 }
+/*
+ *  Search Tier 1 
+ */
+public void findCars(String x, String y, String z) {
+	
+	int classFirst;
+	int classLast; 
+	int c =0;
+	int numCars = 0;
+	
+	classFirst = Class_ll.indexOf(x);
+	classLast = Class_ll.lastIndexOf(x)+1;
+	
+	if(Class_ll.contains(x) && Make_ll.contains(y)) {
+	
+		for(int i=classFirst; i<classLast; i++) {
+		
+			if( Make_ll.get(i).contains(y) && Trans_ll.get(i).contains(z) ) {
+			c++;
+			System.out.println(c + ": " + Class_ll.get(i) + " " + Make_ll.get(i) + " " + Trans_ll.get(i) +  " Index:" +i);
+			numCars++;	
+			
+				}
+			
+			}
+		
+		System.out.println("Number of Cars: " + numCars);
+		}	
+	
+	}
+
+public void filterMPG(String x, String y, String z, int a) {
+	
+	int classFirst;
+	int classLast; 
+	int c =0;
+	int numCars = 0;
+	int range;
+	
+	classFirst = Class_ll.indexOf(x);
+	classLast = Class_ll.lastIndexOf(x)+1;
+	
+	/*if (a == "LOW") {
+		 
+	} else if (a == "MID") {
+		
+	} else if (a == "HIGH") {
+		
+	}
+	*/
+	if(Class_ll.contains(x) && Make_ll.contains(y)) {
+	
+		for(int i=classFirst; i<classLast; i++) {
+		
+			if( Make_ll.get(i).contains(y) && Trans_ll.get(i).contains(z) && CMB_ll.get(i) >= 30) {
+			c++;
+			System.out.println(c + ": " + Class_ll.get(i) + " " + Make_ll.get(i) + " " 
+			+ Trans_ll.get(i) +" " + Model_ll.get(i)+ " "+ CMB_ll.get(i) + " " + "Index:" +i);
+			numCars++;	
+			
+				}
+			
+			}
+		
+		System.out.println("Number of Cars: " + numCars);
+		}	
+	
+	}
+	
+public void findRange() {
+	
+	
+	
+	for(int n : CMB_ll) {
+		if(n <= 20) {
+			Range_ll.add("LOW");
+		} else if(n > 20 && n <=30) {
+			Range_ll.add("MID");
+		} else if(n > 30) {
+			Range_ll.add("HIGH");
+		}
+	}
+	
+	
+	for(int i : CMB_ll)
+	System.out.println(CMB_ll.get(i)+ " " + Range_ll.get(i));
+	
+}
+
+
+
 
 /*
  * 
