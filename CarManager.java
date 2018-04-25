@@ -4,7 +4,7 @@ import java.io.*;
 
 public class CarManager {
 
-	public Scanner x;
+	public Scanner Scanner;
 	 
 	public static LinkedList<String> Class_ll = new LinkedList<String>();
 	public static LinkedList<String> Make_ll = new LinkedList<String>();
@@ -48,12 +48,11 @@ public class CarManager {
 		
 		CarManager x = new CarManager(); 
 		
-		x.openFileBasic(2010);
+		x.openFileBasic(0000);
 		x.readFile();
 		x.closeFile();
 		
-		x.printTest();
-		
+		x.findCars("TRUCK", "FORD", 25);
 		
 		
 	}	 
@@ -80,20 +79,20 @@ public void printTest() {
 	int First = 0;
 	int Last = 0;
 	
-	First = Class_ll.indexOf("MINIVAN");
-	Last = Class_ll.lastIndexOf("MINIVAN");
+	First = Class_ll.indexOf("SEDAN");
+	Last = Class_ll.lastIndexOf("SEDAN");
 	
 	for(int i = First; i < Last; i++) {
 		
-		System.out.println(" | " + i + ": |Class: " + 
+		System.out.println(" | " + i + " | Year: " + 
+				Year_ll.get(i) + ": |Class: " + 
 				Class_ll.get(i) + " |Make: " +
 				Make_ll.get(i) + " |Model: " +
 				Model_ll.get(i) + " |CityMPG:: " +
 				City_ll.get(i) + " |HwyMPG: " +
 				Highway_ll.get(i) + " |CmbMPG: " +
 				CMB_ll.get(i) + " |AFC: " +
-				AFC_ll.get(i) + " |Year: " +
-				Year_ll.get(i) + " | " 
+				AFC_ll.get(i) + " | "  
 				);
 		
 	}
@@ -167,32 +166,44 @@ public void getIndexPrint(int x) {
 	
 	}
 
-	public void findCars(String x, String y, String z) {
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	public void findCars(String x, String y, int z) {
 	
+		/*	String x = CLASS
+		*	String y = MAKE
+		*	int z = CMB
+		*/
 	int FirstIndex;
 	int LastIndex; 
 	int c =0;
 	int numCars = 0;
 	
-	printTest();
-	FirstIndex = Class_ll.indexOf(x)+1;
+	FirstIndex = Class_ll.indexOf(x);
 	LastIndex = Class_ll.lastIndexOf(x)+1;
 	
+	/*
 	for(int i = 1; i < Class_ll.size(); i++) {
 		
 		if(Class_ll.get(i).toUpperCase().contains(z)) {
 			System.out.println("FOUND");
 		}
 	}
-	/*
+	*/
+	
 		if(Class_ll.contains(x) && Make_ll.contains(y)) {
-			for(int i=classFirst; i<classLast; i++) {
+			for(int i=FirstIndex; i<LastIndex; i++) {
 				
-				if( Make_ll.get(i).contains(y) 
-						&& Trans_ll.get(i).toLowerCase().contains(z) ) {
+				if( Make_ll.get(i).contains(y) && 
+						CMB_ll.get(i) >= z) {
 			c++;
 			System.out.println(c + ": " + Class_ll.get(i) + " " 
-			+ Make_ll.get(i) + " " + Trans_ll.get(i) +  " Index:" +i);
+			+ Make_ll.get(i) + " " + Year_ll.get(i) + CMB_ll.get(i) 
+			+ " Index:" +i);
 			numCars++;	
 			
 					}
@@ -201,9 +212,16 @@ public void getIndexPrint(int x) {
 		
 		System.out.println("Number of Cars: " + numCars);
 			}	
-	*/	
+		if(numCars == 0) System.out.println("NO CARS FOUND!!!");
 	}
 
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
 	public void filterMPG(String x, String y, String z, String a) {
 	
 	int classFirst;
@@ -329,7 +347,7 @@ public void getIndexPrint(int x) {
 			if(t == 1) ts = "auto";
 			if(t == 2) ts = "manual";
 			
-			findCars(cs, ms , ts);
+			//findCars(cs, ms , ts);
 			
 			
 			
@@ -379,63 +397,70 @@ public void getIndexPrint(int x) {
 		
 		if(year == 2000) {
 			try{
-				x = new Scanner(new File("cardata"));
+				Scanner = new Scanner(new File("cardata"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}else if(year == 2010) {
 			try{
-				x = new Scanner(new File("2010CarData"));
+				Scanner = new Scanner(new File("2010CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2011) {
 			try{
-				x = new Scanner(new File("2011CarData"));
+				Scanner = new Scanner(new File("2011CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2012) {
 			try{
-				x = new Scanner(new File("2012CarData"));
+				Scanner = new Scanner(new File("2012CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2013) {
 			try{
-				x = new Scanner(new File("2013CarData"));
+				Scanner = new Scanner(new File("2013CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2014) {
 			try{
-				x = new Scanner(new File("2014CarData"));
+				Scanner = new Scanner(new File("2014CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2015) {
 			try{
-				x = new Scanner(new File("2015CarData"));
+				Scanner = new Scanner(new File("2015CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2016) {
 			try{
-				x = new Scanner(new File("2016CarData"));
+				Scanner = new Scanner(new File("2016CarData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2017) {
 			try{
-				x = new Scanner(new File("2016CarData"));
+				Scanner = new Scanner(new File("2016CarData"));
+			
+		}	catch(Exception e){
+				System.out.println("Could not find File");
+			}	
+		}if(year == 0000) {
+			try{
+				Scanner = new Scanner(new File("AllData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
@@ -449,63 +474,63 @@ public void openFileAdvanced(int year){
 		
 		if(year == 2000) {
 			try{
-				x = new Scanner(new File("cardata"));
+				Scanner = new Scanner(new File("cardata"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2010) {
 			try{
-				x = new Scanner(new File("2010CarData2"));
+				Scanner = new Scanner(new File("2010CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2011) {
 			try{
-				x = new Scanner(new File("2011CarData2"));
+				Scanner = new Scanner(new File("2011CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2012) {
 			try{
-				x = new Scanner(new File("2012CarData2"));
+				Scanner = new Scanner(new File("2012CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2013) {
 			try{
-				x = new Scanner(new File("2013CarData2"));
+				Scanner = new Scanner(new File("2013CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2014) {
 			try{
-				x = new Scanner(new File("2014CarData2"));
+				Scanner = new Scanner(new File("2014CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2015) {
 			try{
-				x = new Scanner(new File("2015CarData2"));
+				Scanner = new Scanner(new File("2015CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2016) {
 			try{
-				x = new Scanner(new File("2016CarData2"));
+				Scanner = new Scanner(new File("2016CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}if(year == 2017) {
 			try{
-				x = new Scanner(new File("2016CarData2"));
+				Scanner = new Scanner(new File("2016CarData2"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
@@ -520,38 +545,38 @@ public void openFileAdvanced(int year){
 	
 	public void readFile(){
 		
-		while(x.hasNext()){						
+		while(Scanner.hasNext()){						
 			
-			String a = x.next();		
+			String a = Scanner.next();		
 			Class_ll.add(a);											
 			
-			String b = x.next();
+			String b = Scanner.next();
 			Make_ll.add(b);
 			
-			String c = x.next();
+			String c = Scanner.next();
 			Model_ll.add(c);
 			
-			String d = x.next();
+			String d = Scanner.next();
 			int city = 0;
 			city = Integer.parseInt(d);
 			City_ll.add(city);
 			
-			String e = x.next();
+			String e = Scanner.next();
 			int highway = 0;
 			highway = Integer.parseInt(e);
 			Highway_ll.add(highway);
 			
-			String f = x.next();
+			String f = Scanner.next();
 			int CMB = 0;
 			CMB = Integer.parseInt(f);
 			CMB_ll.add(CMB);
 			
-			String g = x.next();
+			String g = Scanner.next();
 			int AFC = 0;
 			AFC = Integer.parseInt(g);
 			AFC_ll.add(AFC);
 			
-			String h = x.next();
+			String h = Scanner.next();
 			int YEAR = 0;
 			YEAR = Integer.parseInt(h);
 			Year_ll.add(YEAR);
@@ -560,7 +585,7 @@ public void openFileAdvanced(int year){
 	}
 	
 	public void closeFile(){
-		x.close();
+		Scanner.close();
 	}
 
 }
