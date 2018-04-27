@@ -14,6 +14,7 @@ public class CarManager {
 	public static LinkedList<Integer> CMB_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> AFC_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> Year_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> Index_ll = new LinkedList<Integer>();
 	
 	public static LinkedList<String> ClassA_ll = new LinkedList<String>();
 	public static LinkedList<String> MakeA_ll = new LinkedList<String>();
@@ -27,22 +28,19 @@ public class CarManager {
 	public static LinkedList<String> FuelA_ll = new LinkedList<String>();
 	public static LinkedList<Integer> YearA_ll = new LinkedList<Integer>();
 	
-	public static ArrayList<String> Class_arr = new ArrayList<String>();
-	public static ArrayList<String> Make_arr = new ArrayList<String>();
-	public static ArrayList<String> Model_arr = new ArrayList<String>();
-	public static ArrayList<String> Trans_arr = new ArrayList<String>();
-	public static ArrayList<String> Drive_arr = new ArrayList<String>();
-	public static ArrayList<Integer> City_arr = new ArrayList<Integer>();
-	public static ArrayList<Integer> Highway_arr = new ArrayList<Integer>();
-	public static ArrayList<Integer> Cmb_arr = new ArrayList<Integer>();
-	public static ArrayList<Integer> AFC_arr = new ArrayList<Integer>();
-	public static ArrayList<Integer> Year_arr = new ArrayList<Integer>();
-	
 	public static LinkedList<String> RangeCity_ll = new LinkedList<String>();
 	public static LinkedList<String> RangeCMB_ll = new LinkedList<String>();
 	public static LinkedList<String> RangeHwy_ll = new LinkedList<String>();
 	
-	public static LinkedList<String> Customer_ll = new LinkedList<String>();
+	public static LinkedList<String> CustomerClass_ll = new LinkedList<String>();
+	public static LinkedList<String> CustomerMake_ll = new LinkedList<String>();
+	public static LinkedList<String> CustomerModel_ll = new LinkedList<String>();
+	public static LinkedList<Integer> CustomerCity_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> CustomerHwy_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> CustomerYear_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> CustomerCMB_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> CustomerAFC_ll = new LinkedList<Integer>();
+	public static LinkedList<Integer> CustomerIndex_ll = new LinkedList<Integer>();
 	
 	public static void main(String[] args) {
 		
@@ -52,7 +50,17 @@ public class CarManager {
 		x.readFile();
 		x.closeFile();
 		
-		x.findCars("TRUCK", "FORD", 25);
+		x.findRangeCity();
+		x.findRangeCMB();
+		x.findRangeHwy();
+		x.addIndex();
+		
+		x.findClass("SEDAN");
+		x.findMake("SEDAN", "FORD");
+		
+		x.filterMPG("SEDAN", "FORD", "MID");
+		
+		
 		
 		
 	}	 
@@ -70,32 +78,21 @@ public void printTest() {
 	System.out.println("Make: " + Make_ll);
 	System.out.println("Model: " + Model_ll);
 	System.out.println("City-MPG: " + City_ll);
+	System.out.println("City-Range: " + RangeCity_ll);
 	System.out.println("HWY-MPG: " + Highway_ll);
+	System.out.println("HWY-Range: " + RangeHwy_ll);
 	System.out.println("CMB-MPG: " + CMB_ll);
+	System.out.println("CMB-Range: " + RangeCMB_ll);
 	System.out.println("AFC: " + AFC_ll);
+	System.out.println("Year: " + Year_ll);
 	
-	System.out.println();
-	
-	int First = 0;
-	int Last = 0;
-	
-	First = Class_ll.indexOf("SEDAN");
-	Last = Class_ll.lastIndexOf("SEDAN");
-	
-	for(int i = First; i < Last; i++) {
+	for(int i = 0; i< 100; i++) {
 		
-		System.out.println(" | " + i + " | Year: " + 
-				Year_ll.get(i) + ": |Class: " + 
-				Class_ll.get(i) + " |Make: " +
-				Make_ll.get(i) + " |Model: " +
-				Model_ll.get(i) + " |CityMPG:: " +
-				City_ll.get(i) + " |HwyMPG: " +
-				Highway_ll.get(i) + " |CmbMPG: " +
-				CMB_ll.get(i) + " |AFC: " +
-				AFC_ll.get(i) + " | "  
-				);
+		
 		
 	}
+
+	
 	
 }
 	
@@ -109,6 +106,17 @@ public void getIndexPrint(int x) {
 	System.out.println(CMB_ll.get(x));
 	
 }
+
+	public void printCustomerList() {
+		
+			for(int i = 0; i<CustomerClass_ll.size(); i++ ) {
+
+			
+			System.out.println(i + ": " + CustomerIndex_ll.get(i) + " " + CustomerClass_ll.get(i)+ " " + CustomerMake_ll.get(i) + " " + CustomerModel_ll.get(i) + " " + CustomerYear_ll.get(i));
+			
+		}
+		
+	}
 
 /*
  *  END TEST METHODS 
@@ -131,7 +139,7 @@ public void getIndexPrint(int x) {
  */
 	public void collectionsSort() {
 	
-	//Collection.sort(Customer_ll);	
+	//Collection.sort(Class_ll);	
 	
 	}
 
@@ -144,6 +152,7 @@ public void getIndexPrint(int x) {
  *  - MPG
  *  
  */
+	//STEP ONE SEARCH
 	public void findClass(String x) {
 	
 	int a;
@@ -158,7 +167,7 @@ public void getIndexPrint(int x) {
 		for(int i=a; i<b; i++) {
 			c++;
 			System.out.println(c + ": "+ Class_ll.get(i)+ " " + Make_ll.get(i) 
-			+ " " + Model_ll.get(i));
+			+ " " + Model_ll.get(i) + " " + Year_ll.get(i));
 			numMake++;	
 		}
  
@@ -166,18 +175,13 @@ public void getIndexPrint(int x) {
 	
 	}
 
-	/*
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
-	public void findCars(String x, String y, int z) {
+	//STEP TWO SEARCH
+	public void findMake(String x, String y) {
 	
 		/*	String x = CLASS
 		*	String y = MAKE
-		*	int z = CMB
 		*/
+		
 	int FirstIndex;
 	int LastIndex; 
 	int c =0;
@@ -186,44 +190,32 @@ public void getIndexPrint(int x) {
 	FirstIndex = Class_ll.indexOf(x);
 	LastIndex = Class_ll.lastIndexOf(x)+1;
 	
-	/*
-	for(int i = 1; i < Class_ll.size(); i++) {
-		
-		if(Class_ll.get(i).toUpperCase().contains(z)) {
-			System.out.println("FOUND");
-		}
-	}
-	*/
-	
-		if(Class_ll.contains(x) && Make_ll.contains(y)) {
-			for(int i=FirstIndex; i<LastIndex; i++) {
-				
-				if( Make_ll.get(i).contains(y) && 
-						CMB_ll.get(i) >= z) {
+		if(Class_ll.contains(x) && Make_ll.contains(y)) { //Checks if conditions are true
+			for(int i=FirstIndex; i<LastIndex; i++) { //Loops through index's based off CLASS 
+				if( Make_ll.get(i).contains(y)) { // If index of CLASS and index of MAKE match then ->
 			c++;
-			System.out.println(c + ": " + Class_ll.get(i) + " " 
-			+ Make_ll.get(i) + " " + Year_ll.get(i) + CMB_ll.get(i) 
-			+ " Index:" +i);
+			System.out.println(c + 
+					":  Class: " + Class_ll.get(i) + 
+					" | Make: " + Make_ll.get(i) + 
+					" | Model: " + Model_ll.get(i) + 
+					" | Year: "+ Year_ll.get(i) + 
+					" | Index: " +i);
 			numCars++;	
-			
 					}
-			
 				}
 		
 		System.out.println("Number of Cars: " + numCars);
-			}	
+			}
 		if(numCars == 0) System.out.println("NO CARS FOUND!!!");
 	}
 
-	/*
-	 * 
-	 * 
-	 * 
-	 * 
+	
+	//STEP THREE SEARCH
+	public void filterMPG(String x, String y, String a) {
+	/*	x = CLASS
+	 * 	y = MAKE
+	 * 	z = 
 	 */
-	
-	public void filterMPG(String x, String y, String z, String a) {
-	
 	int classFirst;
 	int classLast; 
 	int c =0;
@@ -233,23 +225,27 @@ public void getIndexPrint(int x) {
 	classFirst = Class_ll.indexOf(x);
 	classLast = Class_ll.lastIndexOf(x)+1;
 	
-	if(Class_ll.contains(x) && Make_ll.contains(y)) {
+	if(Class_ll.contains(x) && Make_ll.contains(y)) {//CHECK TRUE
 	
-		for(int i=classFirst; i<classLast; i++) {
+		for(int i=classFirst; i<classLast; i++) {//LOOP 
 		
-			if( Make_ll.get(i).contains(y) && RangeCMB_ll.get(i).contains(a)) {
+			if( Make_ll.get(i).contains(y) && RangeCMB_ll.get(i).contains(a)) {//CHECK 
 			c++;
+			
+			addToCustomerList(i);
+
 			System.out.println(c + ": " + Class_ll.get(i) + " " + Make_ll.get(i) + " " 
 			+ " " + Model_ll.get(i)+ " "
 					+ RangeCMB_ll.get(i) + " " + "Index:" +i);
 			numCars++;	
-			
 				}
-			
+
 			}
 		
 		System.out.println("Number of Cars: " + numCars);
+		printCustomerList();
 		}	
+	
 	
 	}
 /*
@@ -302,9 +298,31 @@ public void getIndexPrint(int x) {
 	}
 	}
 
+	public void addIndex() {
+		
+		for(int n = 0; n < Year_ll.size(); n++) {
+			Index_ll.add(n);
+		}
+		
+	}
 /*
  *  END RANGE METHODS
  */
+	
+	
+	public void addToCustomerList(int i) {
+		
+		CustomerMake_ll.add(Make_ll.get(i));
+		CustomerModel_ll.add(Model_ll.get(i));
+		CustomerYear_ll.add(Year_ll.get(i));
+		CustomerCMB_ll.add(CMB_ll.get(i));
+		CustomerCity_ll.add(City_ll.get(i));
+		CustomerHwy_ll.add(Highway_ll.get(i));
+		CustomerAFC_ll.add(AFC_ll.get(i));
+		CustomerClass_ll.add(Class_ll.get(i));
+		CustomerIndex_ll.add(Index_ll.get(i));
+		
+	}
 	
 	
 	public void Run() {
@@ -374,11 +392,14 @@ public void getIndexPrint(int x) {
 			
 		}
 
-		reader.close();
+		reader.close();	
 		
+	}
+	
+	
+	public void print(LinkedList e) {
 		
-		
-		
+		System.out.println(e);
 		
 	}
 	
@@ -395,70 +416,7 @@ public void getIndexPrint(int x) {
 
 	public void openFileBasic(int year){
 		
-		if(year == 2000) {
-			try{
-				Scanner = new Scanner(new File("cardata"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}else if(year == 2010) {
-			try{
-				Scanner = new Scanner(new File("2010CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2011) {
-			try{
-				Scanner = new Scanner(new File("2011CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2012) {
-			try{
-				Scanner = new Scanner(new File("2012CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2013) {
-			try{
-				Scanner = new Scanner(new File("2013CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2014) {
-			try{
-				Scanner = new Scanner(new File("2014CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2015) {
-			try{
-				Scanner = new Scanner(new File("2015CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2016) {
-			try{
-				Scanner = new Scanner(new File("2016CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2017) {
-			try{
-				Scanner = new Scanner(new File("2016CarData"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 0000) {
+		if(year == 0000) {
 			try{
 				Scanner = new Scanner(new File("AllData"));
 			
@@ -472,74 +430,15 @@ public void getIndexPrint(int x) {
 	
 public void openFileAdvanced(int year){
 		
-		if(year == 2000) {
+		if(year == 0000) {
 			try{
-				Scanner = new Scanner(new File("cardata"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2010) {
-			try{
-				Scanner = new Scanner(new File("2010CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2011) {
-			try{
-				Scanner = new Scanner(new File("2011CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2012) {
-			try{
-				Scanner = new Scanner(new File("2012CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2013) {
-			try{
-				Scanner = new Scanner(new File("2013CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2014) {
-			try{
-				Scanner = new Scanner(new File("2014CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2015) {
-			try{
-				Scanner = new Scanner(new File("2015CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2016) {
-			try{
-				Scanner = new Scanner(new File("2016CarData2"));
-			
-		}	catch(Exception e){
-				System.out.println("Could not find File");
-			}	
-		}if(year == 2017) {
-			try{
-				Scanner = new Scanner(new File("2016CarData2"));
+				Scanner = new Scanner(new File("AllAdvancedData"));
 			
 		}	catch(Exception e){
 				System.out.println("Could not find File");
 			}	
 		}
-		
-		
-		
-		
+			
 	}
 	
 	
