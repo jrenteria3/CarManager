@@ -55,12 +55,10 @@ public class CarManager {
 		x.findRangeHwy();
 		x.addIndex();
 		
+	
+		
 		x.findClass("SEDAN");
-		x.findMake("SEDAN", "FORD");
-		
-		x.filterMPG("SEDAN", "FORD", "MID");
-		
-		
+		x.findClassMake("SEDAN", "TOYOTA");
 		
 		
 	}	 
@@ -109,12 +107,20 @@ public void getIndexPrint(int x) {
 
 	public void printCustomerList() {
 		
-			for(int i = 0; i<CustomerClass_ll.size(); i++ ) {
+		print("Customer List of Cars: ");
+			
+		for(int i = 0; i<CustomerClass_ll.size(); i++ ) {
 
 			
-			System.out.println(i + ": " + CustomerIndex_ll.get(i) + " " + CustomerClass_ll.get(i)+ " " + CustomerMake_ll.get(i) + " " + CustomerModel_ll.get(i) + " " + CustomerYear_ll.get(i));
+			System.out.println(i + ": " + 
+					CustomerIndex_ll.get(i) + " " + 
+					CustomerClass_ll.get(i)+ " " +
+					CustomerMake_ll.get(i) + " " + 
+					CustomerModel_ll.get(i) + " " + 
+					CustomerYear_ll.get(i));
 			
 		}
+		print("To remove cars type in ");
 		
 	}
 
@@ -176,11 +182,13 @@ public void getIndexPrint(int x) {
 	}
 
 	//STEP TWO SEARCH
-	public void findMake(String x, String y) {
+	public void findClassMake(String x, String y) {
 	
 		/*	String x = CLASS
 		*	String y = MAKE
 		*/
+		
+		
 		
 	int FirstIndex;
 	int LastIndex; 
@@ -194,6 +202,7 @@ public void getIndexPrint(int x) {
 			for(int i=FirstIndex; i<LastIndex; i++) { //Loops through index's based off CLASS 
 				if( Make_ll.get(i).contains(y)) { // If index of CLASS and index of MAKE match then ->
 			c++;
+			addToCustomerList(i);
 			System.out.println(c + 
 					":  Class: " + Class_ll.get(i) + 
 					" | Make: " + Make_ll.get(i) + 
@@ -204,17 +213,18 @@ public void getIndexPrint(int x) {
 					}
 				}
 		
-		System.out.println("Number of Cars: " + numCars);
+		System.out.println("Number of Cars: " + numCars + "\n");
+		printCustomerList();
 			}
 		if(numCars == 0) System.out.println("NO CARS FOUND!!!");
 	}
 
 	
 	//STEP THREE SEARCH
-	public void filterMPG(String x, String y, String a) {
+	public void findClassMakeMPG(String x, String y, String a) {
 	/*	x = CLASS
 	 * 	y = MAKE
-	 * 	z = 
+	 * 	z = MPG
 	 */
 	int classFirst;
 	int classLast; 
@@ -397,12 +407,17 @@ public void getIndexPrint(int x) {
 	}
 	
 	
-	public void print(LinkedList e) {
+	public void print(String e) {
 		
 		System.out.println(e);
 		
 	}
 	
+	public void removeFromCustomerList(String x) {
+		
+		
+		
+	}
 	
 
 
