@@ -1,15 +1,12 @@
 import java.util.*;
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class CarManager extends JFrame {
-
-	private static final long serialVersionUID = 1L;
+public class CarManager {
 
 	public Scanner Scanner;
-	 
+
 	public static LinkedList<String> Class_ll = new LinkedList<String>();
 	public static LinkedList<String> Make_ll = new LinkedList<String>();
 	public static LinkedList<String> Model_ll = new LinkedList<String>();
@@ -18,63 +15,34 @@ public class CarManager extends JFrame {
 	public static LinkedList<Integer> CMB_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> AFC_ll = new LinkedList<Integer>();
 	public static LinkedList<Integer> Year_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> Index_ll = new LinkedList<Integer>();
-	public static LinkedList<String> RangeCity_ll = new LinkedList<String>();
-	public static LinkedList<String> RangeCMB_ll = new LinkedList<String>();
-	public static LinkedList<String> RangeHwy_ll = new LinkedList<String>();
+
 	
-	public static LinkedList<String> Year = new LinkedList<String>();
-	public static LinkedList<String> Make = new LinkedList<String>();
-	public static LinkedList<String> Model = new LinkedList<String>();
-	public static LinkedList<String> Displacement = new LinkedList<String>();
-	public static LinkedList<String> Cylinders = new LinkedList<String>();
-	public static LinkedList<String> Transmission = new LinkedList<String>();
-	public static LinkedList<Integer> CityMPG = new LinkedList<Integer>();
-	public static LinkedList<Integer> HighwayMPG = new LinkedList<Integer>();
-	public static LinkedList<Integer> CombinedMPG = new LinkedList<Integer>();
-	public static LinkedList<String> Aspiration = new LinkedList<String>();
-	public static LinkedList<String> TransmissionDesc = new LinkedList<String>();
-	public static LinkedList<String> Gears = new LinkedList<String>();
-	public static LinkedList<String> Drive = new LinkedList<String>();
-	public static LinkedList<String> MaxEthanol = new LinkedList<String>();
-	public static LinkedList<String> AFC = new LinkedList<String>();
-	public static LinkedList<String> Class = new LinkedList<String>();
-	public static LinkedList<String> ReleaseDate = new LinkedList<String>();
-	public static LinkedList<String> Oil = new LinkedList<String>();
-	public static LinkedList<String> YearCost5 = new LinkedList<String>();
-	
-	public static LinkedList<String> YearCC = new LinkedList<String>();
-	public static LinkedList<String> MakeCC = new LinkedList<String>();
-	public static LinkedList<String> ModelCC = new LinkedList<String>();
-	public static LinkedList<String> DisplacementCC = new LinkedList<String>();
-	public static LinkedList<String> CylindersCC = new LinkedList<String>();
-	public static LinkedList<String> TransmissionCC = new LinkedList<String>();
-	public static LinkedList<String> CityMPGCC = new LinkedList<String>();
-	public static LinkedList<String> HighwayMPGCC = new LinkedList<String>();
-	public static LinkedList<String> CombinedMPGCC = new LinkedList<String>();
-	public static LinkedList<String> AspirationCC = new LinkedList<String>();
-	public static LinkedList<String> TransmissionDescCC = new LinkedList<String>();
-	public static LinkedList<String> GearsCC = new LinkedList<String>();
-	public static LinkedList<String> DriveCC = new LinkedList<String>();
-	public static LinkedList<String> MaxEthanolCC = new LinkedList<String>();
-	public static LinkedList<String> Fuel = new LinkedList<String>();
-	public static LinkedList<String> AFCCC = new LinkedList<String>();
-	public static LinkedList<String> ClassCC = new LinkedList<String>();
-	public static LinkedList<String> ReleaseDateCC = new LinkedList<String>();
-	public static LinkedList<String> OilCC = new LinkedList<String>();
-	public static LinkedList<String> YearCost5CC = new LinkedList<String>();
-	
-	public static LinkedList<String> CustomerClass_ll = new LinkedList<String>();
-	public static LinkedList<String> CustomerMake_ll = new LinkedList<String>();
-	public static LinkedList<String> CustomerModel_ll = new LinkedList<String>();
-	public static LinkedList<Integer> CustomerCity_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> CustomerHwy_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> CustomerYear_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> CustomerCMB_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> CustomerAFC_ll = new LinkedList<Integer>();
-	public static LinkedList<Integer> CustomerIndex_ll = new LinkedList<Integer>();
+	public static ArrayList<String> Year = new ArrayList<String>();
+	public static ArrayList<String> Make = new ArrayList<String>();
+	public static ArrayList<String> Model = new ArrayList<String>();
+	public static ArrayList<String> Displacement = new ArrayList<String>();
+	public static ArrayList<String> Cylinders = new ArrayList<String>();
+	public static ArrayList<String> Transmission = new ArrayList<String>();
+	public static ArrayList<Integer> CityMPG = new ArrayList<Integer>();
+	public static ArrayList<Integer> HighwayMPG = new ArrayList<Integer>();
+	public static ArrayList<Integer> CombinedMPG = new ArrayList<Integer>();
+	public static ArrayList<String> Aspiration = new ArrayList<String>();
+	public static ArrayList<String> TransmissionDesc = new ArrayList<String>();
+	public static ArrayList<String> Gears = new ArrayList<String>();
+	public static ArrayList<String> Drive = new ArrayList<String>();
+	public static ArrayList<String> MaxEthanol = new ArrayList<String>();
+	public static ArrayList<String> Fuel = new ArrayList<String>();
+	public static ArrayList<String> AFC = new ArrayList<String>();
+	public static ArrayList<String> Class = new ArrayList<String>();
+	public static ArrayList<String> ReleaseDate = new ArrayList<String>();
+	public static ArrayList<String> Oil = new ArrayList<String>();
+	public static ArrayList<String> YearCost5 = new ArrayList<String>();
+
+	public static ArrayList<Integer> Index = new ArrayList<Integer>();
+	public static ArrayList<String> RangeCity = new ArrayList<String>();
+	public static ArrayList<String> RangeCMB = new ArrayList<String>();
+	public static ArrayList<String> RangeHwy = new ArrayList<String>();
 		
-	
 	public static void main(String[] args) {
 		
 		CarManager data = new CarManager(); 
@@ -82,7 +50,7 @@ public class CarManager extends JFrame {
 		data.openFile(2017);
 		data.readDataFile();
 		data.closeFile();
-		
+		data.collectionsSort();
 		data.printTest();
 		
 		data.findRangeCity();
@@ -147,15 +115,11 @@ public class CarManager extends JFrame {
 	public void printCustomerList() {
 		
 		print("Customer List of Cars: ");
-			
+		/*	
 		for(int i = 0; i<CustomerClass_ll.size(); i++ ) {	
-			System.out.println(i + ": " + 
-					CustomerIndex_ll.get(i) + " " + 
-					CustomerClass_ll.get(i)+ " " +
-					CustomerMake_ll.get(i) + " " + 
-					CustomerModel_ll.get(i) + " " + 
-					CustomerYear_ll.get(i));
+			
 		}
+		*/
 		print("To remove cars type in Index # :^) ");	
 	}
 
@@ -260,14 +224,14 @@ public class CarManager extends JFrame {
 	
 			for(int i=classFirst; i<classLast; i++) {//LOOP 
 		
-				if( Make_ll.get(i).contains(y) && RangeCMB_ll.get(i).contains(a)) {//CHECK 
+				if( Make_ll.get(i).contains(y) && RangeCMB.get(i).contains(a)) {//CHECK 
 					c++;
 					addToCustomerList(i);
 					System.out.println(c + ": " + 
 					Class_ll.get(i) + " " + 
 					Make_ll.get(i) + " " + 
 					Model_ll.get(i) + " " + 
-					RangeCMB_ll.get(i) + " " + 
+					RangeCMB.get(i) + " " + 
 					"Index:" +i);
 					numCars++;	
 					}
@@ -291,11 +255,11 @@ public class CarManager extends JFrame {
 	
 		for(int n : CityMPG) {
 			if(n < 20) {
-				RangeCity_ll.add("LOW");
+				RangeCity.add("LOW");
 			} else if(n >= 20 && n <30) {
-				RangeCity_ll.add("MID");
+				RangeCity.add("MID");
 			} else if(n >= 30) {
-				RangeCity_ll.add("HIGH");
+				RangeCity.add("HIGH");
 			}
 		}
 	}
@@ -304,11 +268,11 @@ public class CarManager extends JFrame {
 	
 		for(int n : CombinedMPG) {
 			if(n < 20) {
-				RangeCMB_ll.add("LOW");
+				RangeCMB.add("LOW");
 			} else if(n >= 20 && n <30) {
-				RangeCMB_ll.add("MID");
+				RangeCMB.add("MID");
 			} else if(n >= 30) {
-				RangeCMB_ll.add("HIGH");
+				RangeCMB.add("HIGH");
 			}
 		}
 	}
@@ -317,19 +281,19 @@ public class CarManager extends JFrame {
 	
 		for(int n : HighwayMPG) {
 			if(n < 20) {
-				RangeHwy_ll.add("LOW");
+				RangeHwy.add("LOW");
 			} else if(n >= 20 && n <30) {
-				RangeHwy_ll.add("MID");
+				RangeHwy.add("MID");
 			} else if(n >= 30) {
-				RangeHwy_ll.add("HIGH");
+				RangeHwy.add("HIGH");
 			}
 		}
 	}
 
 	public void addIndex() {
 		
-		for(int n = 0; n < Year_ll.size(); n++) {
-			Index_ll.add(n);
+		for(int n = 0; n < Year.size(); n++) {
+			Index.add(n);
 		}	
 	}
 	
@@ -340,15 +304,7 @@ public class CarManager extends JFrame {
 	
 	public void addToCustomerList(int i) {
 		
-		CustomerMake_ll.add(Make_ll.get(i));
-		CustomerModel_ll.add(Model_ll.get(i));
-		CustomerYear_ll.add(Year_ll.get(i));
-		CustomerCMB_ll.add(CMB_ll.get(i));
-		CustomerCity_ll.add(City_ll.get(i));
-		CustomerHwy_ll.add(Highway_ll.get(i));
-		CustomerAFC_ll.add(AFC_ll.get(i));
-		CustomerClass_ll.add(Class_ll.get(i));
-		CustomerIndex_ll.add(Index_ll.get(i));
+
 
 	}
 		
