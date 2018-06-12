@@ -37,11 +37,15 @@ public class CarManager {
 	public static ArrayList<String> ReleaseDate = new ArrayList<String>();
 	public static ArrayList<String> Oil = new ArrayList<String>();
 	public static ArrayList<String> YearCost5 = new ArrayList<String>();
+	
+	public static ArrayList<String> SavedCar = new ArrayList<String>();
 
 	public static ArrayList<Integer> Index = new ArrayList<Integer>();
 	public static ArrayList<String> RangeCity = new ArrayList<String>();
 	public static ArrayList<String> RangeCMB = new ArrayList<String>();
 	public static ArrayList<String> RangeHwy = new ArrayList<String>();
+	
+	public static ArrayList<String> TESTLIST = new ArrayList<String>();
 		
 	public static void main(String[] args) {
 		
@@ -51,11 +55,7 @@ public class CarManager {
 		data.readDataFile();
 		data.closeFile();
 		data.collectionsSort();
-		data.printTest();
 		
-		data.findRangeCity();
-		data.findRangeCMB();
-		data.findRangeHwy();
 		data.addIndex();
 		
 		try {
@@ -70,19 +70,6 @@ public class CarManager {
 /*
  * 	Test Methods
  */
-	
-	public void printTestAll() {
-	
-		print("Class: " + Class_ll.get(1));
-		print("Make: " + Make_ll.get(1));
-		print("Model: " + Model_ll.get(1));
-		print("City-MPG: " + City_ll.get(1));
-		print("HWY-MPG: " + Highway_ll.get(1));
-		print("CMB-MPG: " + CMB_ll.get(1));
-		print("AFC: " + AFC_ll.get(1));
-		print("Year: " + Year_ll.get(1));
-			
-	}
 
 	public void printTest() {
 	
@@ -111,17 +98,6 @@ public class CarManager {
 				print("----------------------------------------------");
 				}
 		}
-
-	public void printCustomerList() {
-		
-		print("Customer List of Cars: ");
-		/*	
-		for(int i = 0; i<CustomerClass_ll.size(); i++ ) {	
-			
-		}
-		*/
-		print("To remove cars type in Index # :^) ");	
-	}
 
 /*
  *  END TEST METHODS 
@@ -187,7 +163,6 @@ public class CarManager {
 			for(int i=FirstIndex; i<LastIndex; i++) { //Loops through index's based off CLASS 
 				if( Make_ll.get(i).contains(y)) { // If index of CLASS and index of MAKE match then ->
 					c++;
-					addToCustomerList(i);
 					System.out.println(c + 
 							":  Class: " + Class_ll.get(i) + 
 							" | Make: " + Make_ll.get(i) + 
@@ -199,7 +174,6 @@ public class CarManager {
 				}
 		
 			System.out.println("Number of Cars: " + numCars + "\n");
-			printCustomerList();
 			}
 			if(numCars == 0) System.out.println("NO CARS FOUND!!!");
 	}
@@ -226,7 +200,6 @@ public class CarManager {
 		
 				if( Make_ll.get(i).contains(y) && RangeCMB.get(i).contains(a)) {//CHECK 
 					c++;
-					addToCustomerList(i);
 					System.out.println(c + ": " + 
 					Class_ll.get(i) + " " + 
 					Make_ll.get(i) + " " + 
@@ -238,7 +211,6 @@ public class CarManager {
 				}
 		
 			System.out.println("Number of Cars: " + numCars);
-			printCustomerList();
 			}	
 		}
 /*
@@ -251,45 +223,6 @@ public class CarManager {
  * 
  */
 
-	public void findRangeCity() {
-	
-		for(int n : CityMPG) {
-			if(n < 20) {
-				RangeCity.add("LOW");
-			} else if(n >= 20 && n <30) {
-				RangeCity.add("MID");
-			} else if(n >= 30) {
-				RangeCity.add("HIGH");
-			}
-		}
-	}
-
-	public void findRangeCMB() {
-	
-		for(int n : CombinedMPG) {
-			if(n < 20) {
-				RangeCMB.add("LOW");
-			} else if(n >= 20 && n <30) {
-				RangeCMB.add("MID");
-			} else if(n >= 30) {
-				RangeCMB.add("HIGH");
-			}
-		}
-	}
-
-	public void findRangeHwy() {
-	
-		for(int n : HighwayMPG) {
-			if(n < 20) {
-				RangeHwy.add("LOW");
-			} else if(n >= 20 && n <30) {
-				RangeHwy.add("MID");
-			} else if(n >= 30) {
-				RangeHwy.add("HIGH");
-			}
-		}
-	}
-
 	public void addIndex() {
 		
 		for(int n = 0; n < Year.size(); n++) {
@@ -300,23 +233,10 @@ public class CarManager {
 /*
  *  END RANGE METHODS
  */
-	
-	
-	public void addToCustomerList(int i) {
-		
-
-
-	}
 		
 	public void print(Object s) {
 		
 		System.out.println(s);
-		
-	}
-	
-	public void removeFromCustomerList(String x) {
-		
-		
 		
 	}
 
@@ -413,14 +333,23 @@ public void readDataFile(){
 			
 			String g = Scanner.next();
 			int city = Integer.parseInt(g);
+			if (city < 20)RangeCity.add("LOW");
+			if (city >=20 && city <30) RangeCity.add("MID");
+			if (city >=30) RangeCity.add("HIGH");
 			CityMPG.add(city);
 			
 			String h = Scanner.next();
 			int hwy = Integer.parseInt(h);
+			if (hwy < 20)RangeHwy.add("LOW");
+			if (hwy >=20 && hwy <30) RangeHwy.add("MID");
+			if (hwy >=30) RangeHwy.add("HIGH");
 			HighwayMPG.add(hwy);
 			
 			String i = Scanner.next();
 			int cmb = Integer.parseInt(i);
+			if (cmb < 20)RangeCMB.add("LOW");
+			if (cmb >=20 && cmb <30) RangeCMB.add("MID");
+			if (cmb >=30) RangeCMB.add("HIGH");
 			CombinedMPG.add(cmb);
 			
 			String j = Scanner.next();		

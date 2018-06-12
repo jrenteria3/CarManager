@@ -23,7 +23,7 @@ public class GUI extends JFrame {
 
 	CarManager CM = new CarManager();
 	
-	public JButton BACH, START, CLEAR, SAVED;
+	public JButton BACH, START, CLEAR, SAVED, TEMP1, TEMP2, TEMP3, TEMP4, TEMP5, TEMP6;
 	public JButton COMPACT, COUPE, SEDAN, MINIVAN, VAN, STATION, SUV, SMALLSUV, TRUCK;
 	// COUPES
 	public JButton ACURA, AUDI, CHEVROLET, CHRYSLER, DODGE, FORD, MAZDA, MERCEDES, MINI, NISSAN, SUBARU, TOYOTA;  
@@ -44,7 +44,10 @@ public class GUI extends JFrame {
 	// TRUCKS
 	public JButton CHEVROLET9, DODGE9, FORD9, GMC9, HONDA9, NISSAN9, TOYOTA9;
 	// COUPE CARS
-	public JButton NSX, R8, TT;
+	public JButton NSX, R8, TT, CORVETTE, C500, VIPER, MUSTANG, MX5, AMGGT, COOPER, Z370, BRZ, T86;
+	// COMPACT CARS
+	public JButton ILX, TLX,A4, A5, S5, S3, Q3, A3, I640, I320, I230, I430, VERNAO, CASCADA, ATS, CAMARO, SPARK, CRUZE, SONIC, FIESTA, FOCUS, CIVIC, ACCENT, VELOSTER, Q60, QX30, RIO, FORTE, RCF, GSF, IS300, CX3, MAZ2, MAZ3, S550, E550, 
+					CLS550, C300, CLA250, MAYBACH, MIRAGE, LANCER, GTR, VERSA, WRX, YARIS, JETTA, GOLF, GTI, CC, BEETLE, S60;
 	
 	public JTextField textField1;
 	public JTextArea textArea1, textArea2, text;
@@ -140,9 +143,76 @@ public class GUI extends JFrame {
 		BufferedImage VOLKSWAGENICON = ImageIO.read(new File("CARLOGO/VOLKSWAGEN.png"));
 		BufferedImage VOLVOICON = ImageIO.read(new File("CARLOGO/VOLVO.png"));
 		
-		BufferedImage NSXI = ImageIO.read(new File("CARS/NSX-CAR.png"));
-		BufferedImage R8I = ImageIO.read(new File("CARS/R8-CAR.png"));
-		BufferedImage TTI = ImageIO.read(new File("CARS/TT-CAR.png"));
+		//COUPE
+		BufferedImage NSXI = ImageIO.read(new File("CARS/COUPE/NSX-CAR.png"));
+		BufferedImage R8I = ImageIO.read(new File("CARS/COUPE/R8-CAR.png"));
+		BufferedImage TTI = ImageIO.read(new File("CARS/COUPE/TT-CAR.png"));
+		BufferedImage AMGGTI = ImageIO.read(new File("CARS/COUPE/AMGGT.png"));
+		BufferedImage MX5I= ImageIO.read(new File("CARS/COUPE/MX5.png"));
+		BufferedImage CORVETTEI = ImageIO.read(new File("CARS/COUPE/CORVETTE.png"));
+		BufferedImage C500I = ImageIO.read(new File("CARS/COUPE/500.png"));
+		BufferedImage VIPERI = ImageIO.read(new File("CARS/COUPE/VIPER.png"));
+		BufferedImage MUSTANGI = ImageIO.read(new File("CARS/COUPE/MUSTANG.png"));
+		BufferedImage COOPERI = ImageIO.read(new File("CARS/COUPE/COOPER.png"));
+		BufferedImage Z370I = ImageIO.read(new File("CARS/COUPE/370Z.png"));
+		BufferedImage BRZI = ImageIO.read(new File("CARS/COUPE/BRZ.png"));
+		BufferedImage T86I = ImageIO.read(new File("CARS/COUPE/86.png"));
+		
+		//COMPACT
+		BufferedImage ILXI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage TLXI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage A4I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage A5I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage S5I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage S3I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage Q3I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage A3I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage I640I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage I320I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage I230I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage I430I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage VERNANOI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CASCADAI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage ATSI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CAMAROI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage SPARKI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CRUZEI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage SONICI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage FIRSTAI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage FOCUSI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CIVICI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage ACCENTI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage VELOSTERI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage Q60I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage QX30I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage Q50I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage RIOI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage FORTEI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage RCFI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage GSFI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage IS300I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CX3 = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage MAZDA2I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage MAZDA3I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage S550I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage E550I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CLS550I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage C300I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CLA250I = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage MAYBACHI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage LANCERI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage GTI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage VERSAI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage WRXI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage YARISI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage JETTAI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage GOLFI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage GTII = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage CCI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage BEATLEI = ImageIO.read(new File("CARS/NOPIC.png"));
+		BufferedImage S60I = ImageIO.read(new File("CARS/NOPIC.png"));
+		
+		BufferedImage NONE = ImageIO.read(new File("CARS/NOPIC.png"));
 		
 		START = new JButton(new ImageIcon(STARTICON));
 		START.setBorder(BorderFactory.createEmptyBorder());
@@ -182,7 +252,6 @@ public class GUI extends JFrame {
 		
 		COUPE = new JButton(new ImageIcon(COUPEI));
 		COUPE.setVisible(false);
-		//.setBorder(BorderFactory.createEmptyBorder());
 		COUPE.setContentAreaFilled(true);
 		COUPE.addActionListener(lForButton);
 		COUPE.setBounds(16, 0, 256, 250);
@@ -191,7 +260,6 @@ public class GUI extends JFrame {
 		
 		COMPACT = new JButton(new ImageIcon(COMPACTI));
 		COMPACT.setVisible(false);
-		//COMPACT.setBorder(BorderFactory.createEmptyBorder());
 		COMPACT.setContentAreaFilled(true);
 		COMPACT.addActionListener(lForButton);
 		COMPACT.setBounds(256+16, 0, MED, 250);
@@ -199,7 +267,6 @@ public class GUI extends JFrame {
 			
 		SEDAN = new JButton(new ImageIcon(SEDANI));
 		SEDAN.setVisible(false);
-		//SEDAN.setBorder(BorderFactory.createEmptyBorder());
 		SEDAN.setContentAreaFilled(true);
 		SEDAN.addActionListener(lForButton);
 		SEDAN.setBounds(512+16, 0, MED, 250);
@@ -207,7 +274,6 @@ public class GUI extends JFrame {
 			
 		STATION = new JButton(new ImageIcon(WAGONI));
 		STATION.setVisible(false);
-		//STATION.setBorder(BorderFactory.createEmptyBorder());
 		STATION.setContentAreaFilled(true);
 		STATION.addActionListener(lForButton);
 		STATION.setBounds(16, 246, MED, 250);
@@ -215,7 +281,6 @@ public class GUI extends JFrame {
 			
 		SMALLSUV = new JButton(new ImageIcon(SMALLSUVI));
 		SMALLSUV.setVisible(false);
-		//SMALLSUV.setBorder(BorderFactory.createEmptyBorder());
 		SMALLSUV.setContentAreaFilled(true);
 		SMALLSUV.addActionListener(lForButton);
 		SMALLSUV.setBounds(256+16, 246, MED, 250);
@@ -223,7 +288,6 @@ public class GUI extends JFrame {
 			
 		SUV = new JButton(new ImageIcon(SUVI));
 		SUV.setVisible(false);
-		//SUV.setBorder(BorderFactory.createEmptyBorder());
 		SUV.setContentAreaFilled(true);
 		SUV.addActionListener(lForButton);
 		SUV.setBounds(512+16, 246, 256, 250);
@@ -231,7 +295,6 @@ public class GUI extends JFrame {
 			
 		VAN = new JButton(new ImageIcon(VANI));
 		VAN.setVisible(false);
-		//VAN.setBorder(BorderFactory.createEmptyBorder());
 		VAN.setContentAreaFilled(true);
 		VAN.addActionListener(lForButton);
 		VAN.setBounds(16, 492, 256, 250);
@@ -239,7 +302,6 @@ public class GUI extends JFrame {
 		
 		MINIVAN = new JButton(new ImageIcon(MINIVANI));
 		MINIVAN.setVisible(false);
-		//MINIVAN.setBorder(BorderFactory.createEmptyBorder());
 		MINIVAN.setContentAreaFilled(true);
 		MINIVAN.addActionListener(lForButton);
 		MINIVAN.setBounds(256+16, 492, 256, 250);
@@ -255,7 +317,6 @@ public class GUI extends JFrame {
 		
 		ACURA = new JButton(new ImageIcon(ACURAICON));
 		ACURA.setVisible(false);
-		//ACURA.getBorder();
 		ACURA.setContentAreaFilled(false);
 		ACURA.addActionListener(lForButton);
 		ACURA.setBounds(XPOS1, YPOS1, SMALL, SMALL);
@@ -1247,6 +1308,175 @@ public class GUI extends JFrame {
 		TT.setBounds(XPOS2,YPOS5,SMALL,SMALL);
 		thePanel.add(TT);
 		
+		CORVETTE = new JButton(new ImageIcon(CORVETTEI));
+		CORVETTE.setVisible(false);
+		CORVETTE.setContentAreaFilled(false);
+		CORVETTE.addActionListener(lForButton);
+		CORVETTE.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(CORVETTE);
+		
+		C500 = new JButton(new ImageIcon(C500I));
+		C500.setVisible(false);
+		C500.setContentAreaFilled(false);
+		C500.addActionListener(lForButton);
+		C500.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(C500);
+		
+		VIPER = new JButton(new ImageIcon(VIPERI));
+		VIPER.setVisible(false);
+		VIPER.setContentAreaFilled(false);
+		VIPER.addActionListener(lForButton);
+		VIPER.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(VIPER);
+		
+		MUSTANG = new JButton(new ImageIcon(MUSTANGI));
+		MUSTANG.setVisible(false);
+		MUSTANG.setContentAreaFilled(false);
+		MUSTANG.addActionListener(lForButton);
+		MUSTANG.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(MUSTANG);
+		
+		MX5 = new JButton(new ImageIcon(MX5I));
+		MX5.setVisible(false);
+		MX5.setContentAreaFilled(false);
+		MX5.addActionListener(lForButton);
+		MX5.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(MX5);
+		
+		AMGGT = new JButton(new ImageIcon(AMGGTI));
+		AMGGT.setVisible(false);
+		AMGGT.setContentAreaFilled(false);
+		AMGGT.addActionListener(lForButton);
+		AMGGT.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(AMGGT);
+		
+		COOPER = new JButton(new ImageIcon(COOPERI));
+		COOPER.setVisible(false);
+		COOPER.setContentAreaFilled(false);
+		COOPER.addActionListener(lForButton);
+		COOPER.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(COOPER);
+		
+		Z370 = new JButton(new ImageIcon(Z370I));
+		Z370.setVisible(false);
+		Z370.setContentAreaFilled(false);
+		Z370.addActionListener(lForButton);
+		Z370.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(Z370);
+		
+		BRZ = new JButton(new ImageIcon(BRZI));
+		BRZ.setVisible(false);
+		BRZ.setContentAreaFilled(false);
+		BRZ.addActionListener(lForButton);
+		BRZ.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(BRZ);
+		
+		T86 = new JButton(new ImageIcon(T86I));
+		T86.setVisible(false);
+		T86.setContentAreaFilled(false);
+		T86.addActionListener(lForButton);
+		T86.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(T86);
+		
+		ILX = new JButton(new ImageIcon(NONE));
+		ILX.setVisible(false);
+		ILX.setContentAreaFilled(false);
+		ILX.addActionListener(lForButton);
+		ILX.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(ILX);
+		
+		TLX = new JButton(new ImageIcon(NONE));
+		TLX.setVisible(false);
+		TLX.setContentAreaFilled(false);
+		TLX.addActionListener(lForButton);
+		TLX.setBounds(XPOS2,YPOS5,SMALL,SMALL);
+		thePanel.add(TLX);
+		
+		A4 = new JButton(new ImageIcon(NONE));
+		A4.setVisible(false);
+		A4.setContentAreaFilled(false);
+		A4.addActionListener(lForButton);
+		A4.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(A4);
+		
+		A5 = new JButton(new ImageIcon(NONE));
+		A5.setVisible(false);
+		A5.setContentAreaFilled(false);
+		A5.addActionListener(lForButton);
+		A5.setBounds(XPOS2,YPOS5,SMALL,SMALL);
+		thePanel.add(A5);
+		
+		S5 = new JButton(new ImageIcon(NONE));
+		S5.setVisible(false);
+		S5.setContentAreaFilled(false);
+		S5.addActionListener(lForButton);
+		S5.setBounds(XPOS3,YPOS5,SMALL,SMALL);
+		thePanel.add(S5);
+		
+		S3 = new JButton(new ImageIcon(NONE));
+		S3.setVisible(false);
+		S3.setContentAreaFilled(false);
+		S3.addActionListener(lForButton);
+		S3.setBounds(XPOS4,YPOS5,SMALL,SMALL);
+		thePanel.add(S3);
+		
+		Q3 = new JButton(new ImageIcon(NONE));
+		Q3.setVisible(false);
+		Q3.setContentAreaFilled(false);
+		Q3.addActionListener(lForButton);
+		Q3.setBounds(XPOS5,YPOS5,SMALL,SMALL);
+		thePanel.add(Q3);
+		
+		A3 = new JButton(new ImageIcon(NONE));
+		A3.setVisible(false);
+		A3.setContentAreaFilled(false);
+		A3.addActionListener(lForButton);
+		A3.setBounds(XPOS6,YPOS5,SMALL,SMALL);
+		thePanel.add(A3);
+		
+		TEMP1= new JButton(new ImageIcon(NONE));
+		TEMP1.setVisible(false);
+		TEMP1.setContentAreaFilled(false);
+		TEMP1.addActionListener(lForButton);
+		TEMP1.setBounds(XPOS1,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP1);
+		
+		TEMP2= new JButton(new ImageIcon(NONE));
+		TEMP2.setVisible(false);
+		TEMP2.setContentAreaFilled(false);
+		TEMP2.addActionListener(lForButton);
+		TEMP2.setBounds(XPOS2,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP2);
+		
+		TEMP3= new JButton(new ImageIcon(NONE));
+		TEMP3.setVisible(false);
+		TEMP3.setContentAreaFilled(false);
+		TEMP3.addActionListener(lForButton);
+		TEMP3.setBounds(XPOS3,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP3);
+		
+		TEMP4= new JButton(new ImageIcon(NONE));
+		TEMP4.setVisible(false);
+		TEMP4.setContentAreaFilled(false);
+		TEMP4.addActionListener(lForButton);
+		TEMP4.setBounds(XPOS4,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP4);
+		
+		TEMP5= new JButton(new ImageIcon(NONE));
+		TEMP5.setVisible(false);
+		TEMP5.setContentAreaFilled(false);
+		TEMP5.addActionListener(lForButton);
+		TEMP5.setBounds(XPOS5,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP5);
+		
+		TEMP6= new JButton(new ImageIcon(NONE));
+		TEMP6.setVisible(false);
+		TEMP6.setContentAreaFilled(false);
+		TEMP6.addActionListener(lForButton);
+		TEMP6.setBounds(XPOS6,YPOS5,SMALL,SMALL);
+		thePanel.add(TEMP6);
+		
+		
 		// How to add a text field ----------------------
 		
 		textField1 = new JTextField("", 15);
@@ -1269,7 +1499,7 @@ public class GUI extends JFrame {
 		
 		text = new JTextArea("",10,10);
 		text.setVisible(false);
-		text.setFont(new Font("monospaced", Font.PLAIN, 18));
+		text.setFont(new Font("monospaced", Font.PLAIN, 15));
 		text.setLineWrap(true);
 		text.setWrapStyleWord(true);
 		text.setEditable(false);
@@ -1290,7 +1520,7 @@ public class GUI extends JFrame {
 		
 		// Adds scroll bars to the text area ----------
 				
-		JScrollPane scrollbar1 = new JScrollPane(textArea1, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollbar1 = new JScrollPane(textArea1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 				
 		// Other options: VERTICAL_SCROLLBAR_ALWAYS, VERTICAL_SCROLLBAR_NEVER
 				
@@ -1328,26 +1558,26 @@ public class GUI extends JFrame {
 			for(int i = i1; i < i2; i++) {
 				if(CarManager.Make.get(i).contains(n) && CarManager.Model.get(i).contains(o)) {
 					text.append( 
-							"\n01: Year: ------------ " + CarManager.Year.get(i) + " " +
-							"\n02: ReleaseDate: ----- "	+ CarManager.ReleaseDate.get(i) +	
-							"\n03: Class: ----------- " + CarManager.Class.get(i) +
-							"\n04: Make: ------------ " + CarManager.Make.get(i) + " " + 
-							"\n05: Model: ----------- " + CarManager.Model.get(i) + 
-							"\n06: Transmission: ---- " +  CarManager.Transmission.get(i) +
-							"\n07: TransDesc: ------- " + CarManager.TransmissionDesc.get(i) +
-							"\n08: Drive: ----------- " + CarManager.Drive.get(i) + 
-							"\n09: CityMPG: --------- " + CarManager.CityMPG.get(i) + " " + CarManager.RangeCity.get(i) + 
-							"\n10: HwyMPG: ---------- " + CarManager.HighwayMPG.get(i) + " " + CarManager.RangeHwy.get(i) +
-							"\n11: CombinedMPG: ----- " + CarManager.CombinedMPG.get(i) + " " + CarManager.RangeCMB.get(i) + 
-							"\n12: Displacement: ---- " + CarManager.Displacement.get(i) + 
-							"\n13: Cylinders: ------- " + CarManager.Cylinders.get(i) + 
-							"\n14: Aspiration: ------ " + CarManager.Aspiration.get(i) + ""+ 		
-							"\n15: Gears: ----------- " + CarManager.Gears.get(i) + 
-							"\n16: MaxEthanol: ------ " + CarManager.MaxEthanol.get(i) + 
-							"\n17: Fuel: ------------ " + CarManager.Fuel.get(i) +
-							"\n18: Oil: ------------- " + CarManager.Oil.get(i) +
-							"\n19: AFC: ------------- " + CarManager.AFC.get(i) +
-							"\n20: 5YearCost: ------- " + CarManager.YearCost5.get(i)  );
+							"\n Year: --------- " + CarManager.Year.get(i) + " " +
+							"\n ReleaseDate: -- "	+ CarManager.ReleaseDate.get(i) +	
+							"\n Class: -------- " + CarManager.Class.get(i) +
+							"\n Make: --------- " + CarManager.Make.get(i) + " " + 
+							"\n Model: -------- " + CarManager.Model.get(i) + 
+							"\n Transmission: - " +  CarManager.Transmission.get(i) +
+							"\n TransDesc: ---- " + CarManager.TransmissionDesc.get(i) +
+							"\n Drive: -------- " + CarManager.Drive.get(i) + 
+							"\n CityMPG: ------ " + CarManager.CityMPG.get(i) + " " + CarManager.RangeCity.get(i) + 
+							"\n HwyMPG: ------- " + CarManager.HighwayMPG.get(i) + " " + CarManager.RangeHwy.get(i) +
+							"\n CombinedMPG: -- " + CarManager.CombinedMPG.get(i) + " " + CarManager.RangeCMB.get(i) + 
+							"\n Displacement: - " + CarManager.Displacement.get(i) + 
+							"\n Cylinders: ---- " + CarManager.Cylinders.get(i) + 
+							"\n Aspiration: --- " + CarManager.Aspiration.get(i) + ""+ 		
+							"\n Gears: -------- " + CarManager.Gears.get(i) + 
+							"\n MaxEthanol: --- " + CarManager.MaxEthanol.get(i) + 
+							"\n Fuel: --------- " + CarManager.Fuel.get(i) +
+							"\n Oil: ---------- " + CarManager.Oil.get(i) +
+							"\n AFC: ---------- " + CarManager.AFC.get(i) +
+							"\n 5YearCost: ---- " + CarManager.YearCost5.get(i)  );
 					
 				}
 				//LABEL.setText("Number of Cars: " + cars);
@@ -1554,7 +1784,23 @@ public class GUI extends JFrame {
 		NSX.setVisible(false);
 		R8.setVisible(false);
 		TT.setVisible(false);
+		CORVETTE.setVisible(false);
+		C500.setVisible(false);
+		VIPER.setVisible(false);
+		MUSTANG.setVisible(false);
+		MX5.setVisible(false);
+		AMGGT.setVisible(false);
+		COOPER.setVisible(false);
+		Z370.setVisible(false);
+		BRZ.setVisible(false);
+		T86.setVisible(false);
 		
+		TEMP1.setVisible(false);
+		TEMP2.setVisible(false);
+		TEMP3.setVisible(false);
+		TEMP4.setVisible(false);
+		TEMP5.setVisible(false);
+		TEMP6.setVisible(false);
 		
 	}
 	
@@ -1735,7 +1981,32 @@ public class GUI extends JFrame {
 		NSX.setVisible(false);
 		R8.setVisible(false);
 		TT.setVisible(false);
+		CORVETTE.setVisible(false);
+		C500.setVisible(false);
+		VIPER.setVisible(false);
+		MUSTANG.setVisible(false);
+		MX5.setVisible(false);
+		AMGGT.setVisible(false);
+		COOPER.setVisible(false);
+		Z370.setVisible(false);
+		BRZ.setVisible(false);
+		T86.setVisible(false);
 		
+		A4.setVisible(false);
+		A5.setVisible(false);
+		S5.setVisible(false);
+		S3.setVisible(false);
+		Q3.setVisible(false);
+		A3.setVisible(false);
+		ILX.setVisible(false);
+		TLX.setVisible(false);
+		
+		TEMP1.setVisible(false);
+		TEMP2.setVisible(false);
+		TEMP3.setVisible(false);
+		TEMP4.setVisible(false);
+		TEMP5.setVisible(false);
+		TEMP6.setVisible(false);
 		
 	}
 	
@@ -1922,6 +2193,32 @@ public class GUI extends JFrame {
 		NSX.setVisible(false);
 		R8.setVisible(false);
 		TT.setVisible(false);
+		CORVETTE.setVisible(false);
+		C500.setVisible(false);
+		VIPER.setVisible(false);
+		MUSTANG.setVisible(false);
+		MX5.setVisible(false);
+		AMGGT.setVisible(false);
+		COOPER.setVisible(false);
+		Z370.setVisible(false);
+		BRZ.setVisible(false);
+		T86.setVisible(false);
+		
+		A4.setVisible(false);
+		A5.setVisible(false);
+		S5.setVisible(false);
+		S3.setVisible(false);
+		Q3.setVisible(false);
+		A3.setVisible(false);
+		ILX.setVisible(false);
+		TLX.setVisible(false);
+		
+		TEMP1.setVisible(false);
+		TEMP2.setVisible(false);
+		TEMP3.setVisible(false);
+		TEMP4.setVisible(false);
+		TEMP5.setVisible(false);
+		TEMP6.setVisible(false);
 		
 	}
 	
@@ -1947,10 +2244,15 @@ public class GUI extends JFrame {
 			for(int i = i1; i < i2; i++) {
 				if(CarManager.Make.get(i).contains(m)) {
 					cars++;
-					text.append("\n" +  cars + " Year: " + CarManager.Year.get(i) + " " + "Make: " + CarManager.Make.get(i) + " " + "Model: " + CarManager.Model.get(i)
-					+ " Transmission: " +  CarManager.Transmission.get(i) + " |Drive: " + CarManager.Drive.get(i)
-					+ "\n CityMPG: " + CarManager.CityMPG.get(i) + " HwyMPG: " + CarManager.HighwayMPG.get(i) + " CombinedMPG: " + CarManager.CombinedMPG.get(i) 
-					+ " City: " + CarManager.RangeCity.get(i) + " Highway: " + CarManager.RangeHwy.get(i) + " Combined: " + CarManager.RangeCMB.get(i) + "\n" );
+					text.append("\n" +  cars + ": " 
+							+ "\n Year: " + CarManager.Year.get(i) + " " 
+							+ "\n Make: " + CarManager.Make.get(i) + " " 
+							+ "\n Model: " + CarManager.Model.get(i) + " " 
+							+ "\n Transmission: " +  CarManager.Transmission.get(i) + " " 
+							+ "\n Drive: " + CarManager.Drive.get(i)
+							+ "\n CityMPG: " + CarManager.CityMPG.get(i) + " " + CarManager.RangeCity.get(i)
+							+ "\n HwyMPG: " + CarManager.HighwayMPG.get(i) + " " + CarManager.RangeHwy.get(i)
+							+ "\n CombinedMPG: " + CarManager.CombinedMPG.get(i) + " " + CarManager.RangeCMB.get(i));
 					
 				}
 				//LABEL.setText("Number of Cars: " + cars);
@@ -1968,7 +2270,6 @@ public class GUI extends JFrame {
 	}
 	
 	public void Saved() {
-		
 		if(CarManager.SavedCar.isEmpty()==true) {
 			text.setText("No Saved Cars!");
 		} else {
@@ -1977,7 +2278,7 @@ public class GUI extends JFrame {
 		
 		for(String n : CarManager.SavedCar) {
 			i++;
-			text.append("Car " + i + ": " + n + "\n");
+			text.append(" " + i + ": " + n + "\n");
 			
 			}
 		}
@@ -1988,19 +2289,15 @@ public class GUI extends JFrame {
 	
 	// Implements ActionListener so it can react to events on components
 	
+	public class NewButton {
+		
+		
+		
+	}
+	
 	public class ListenForButton implements ActionListener{
 	
-		// This method is called when an event occurs
-		public void printGUI() {
-			
-			int i1 = CarManager.Class_ll.indexOf("MINIVAN");
-			int i2 = CarManager.Class_ll.lastIndexOf("MINIVAN");
 		
-			for(int i = i1; i<i2; i++) {	
-				label1.setText(CarManager.Class_ll.get(i) + " " + CarManager.Model_ll.get(i));
-				textArea1.append(CarManager.Class_ll.get(i) + " " + CarManager.Model_ll.get(i) + "\n");
-					}
-				}
 	
 	public void actionPerformed(ActionEvent e){
 		
@@ -2026,6 +2323,37 @@ public class GUI extends JFrame {
 				Saved();	
 				
 		}
+		 if(e.getSource() == TEMP1) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP1.setVisible(true);
+				
+			}if(e.getSource() == TEMP2) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP2.setVisible(true);
+				
+			}if(e.getSource() == TEMP3) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP3.setVisible(true);
+				
+			}if(e.getSource() == TEMP4) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP4.setVisible(true);
+				
+			}if(e.getSource() == TEMP5) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP5.setVisible(true);
+				
+			}if(e.getSource() == TEMP6) {
+				
+				text.setText("\n ERROR! ERROR! ERROR! ERROR! ERROR! ERROR! \n \n CAR HAS NOT YET BEEN LINKED TO A PROFILE!");			
+				TEMP6.setVisible(true);
+				
+			}
 			/*
 			 * 
 			 * 	BEGIN COUPE BUTTONS -----------------------------------------------
@@ -2034,7 +2362,8 @@ public class GUI extends JFrame {
 			if(e.getSource() == COUPE) {
 			
 				SelectedClass();
-			
+				text.setText("Here are the makes avaialbe in the class section of COUPE. Choose a brand to continue your search, or the bach button to return to the class selection page.");
+				
 			AUDI.setVisible(true);
 			ACURA.setVisible(true);
 			CHEVROLET.setVisible(true);
@@ -2061,14 +2390,14 @@ public class GUI extends JFrame {
 		}if(e.getSource() == R8) {
 			
 			findModel("COUPE", "AUDI", "R8");
-			AddCustomer("AUDI-R8");			
+			AddCustomer("COUPE - AUDI - R8");			
 			R8.setVisible(true);
 			TT.setVisible(false);
 			
 		}if(e.getSource() == TT) {
 			
 			findModel("COUPE", "AUDI", "TT");
-			AddCustomer("AUDI-TT");			
+			AddCustomer("COUPE - AUDI - TT");			
 			R8.setVisible(false);
 			TT.setVisible(true);
 			
@@ -2088,9 +2417,11 @@ public class GUI extends JFrame {
 		}if(e.getSource() == NSX) {
 			
 			findModel("COUPE", "ACURA", "NSX");
-			AddCustomer("ACURA-NSX");			
+			AddCustomer("COUPE - ACURA - NSX");			
 			NSX.setVisible(true);
-			 try {
+			 
+			/**
+			   try {
 		         // Open an audio input stream.           
 		          File soundFile = new File("dejavuclip.wav"); //you could also get the sound file with an URL
 		          AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);              
@@ -2106,180 +2437,173 @@ public class GUI extends JFrame {
 		      } catch (LineUnavailableException e1) {
 		         (e1).printStackTrace();
 		      }
-		   }
+		      
+		      */
+		   }if(e.getSource() == CHEVROLET) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				CHEVROLET.setVisible(true);
+				CORVETTE.setVisible(true);
+		
+				ClassMakePrint("CHEVROLET", "CORVETTE");
+				
+			}if(e.getSource() == CORVETTE) {
+				
+				findModel("COUPE", "CHEVROLET", "CORVETTE");
+				AddCustomer("COUPE - CHEVROLET - CORVETTE");			
+				CORVETTE.setVisible(true);
+				
+			}if(e.getSource() == CHRYSLER) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				CHRYSLER.setVisible(true);
+				C500.setVisible(true);
+		
+				ClassMakePrint("CHRYSLER", "500");
+				
+			}if(e.getSource() == C500) {
+				
+				findModel("COUPE", "CHRYSLER", "500");
+				AddCustomer("COUPE - CHRYSLER - 500");			
+				C500.setVisible(true);
+				
+			}if(e.getSource() == DODGE) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				DODGE.setVisible(true);
+				VIPER.setVisible(true);
+		
+				ClassMakePrint("DODGE", "Viper");
+				
+			}if(e.getSource() == VIPER) {
+				
+				findModel("COUPE", "DODGE", "Viper");
+				AddCustomer("COUPE - DODGE - Viper");			
+				VIPER.setVisible(true);
+				
+			}if(e.getSource() == FORD) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				FORD.setVisible(true);
+				MUSTANG.setVisible(true);
+		
+				ClassMakePrint("FORD", "Mustang");
+				
+			}if(e.getSource() == MUSTANG) {
+				
+				findModel("COUPE", "FORD", "Mustang");
+				AddCustomer("COUPE - FORD - Mustang");			
+				MUSTANG.setVisible(true);
+				
+			}if(e.getSource() == MAZDA) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				MAZDA.setVisible(true);
+				MX5.setVisible(true);
+		
+				ClassMakePrint("MAZDA", "MX5");
+				
+			}if(e.getSource() == MX5) {
+				
+				findModel("COUPE", "MAZDA", "MX5");
+				AddCustomer("COUPE - MAZDA - MX5");			
+				MX5.setVisible(true);
+				
+			}if(e.getSource() == MERCEDES) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				MERCEDES.setVisible(true);
+				AMGGT.setVisible(true);
+		
+				ClassMakePrint("MERCEDES-BENZ", "AMGGT");
+				
+			}if(e.getSource() == AMGGT) {
+				
+				findModel("COUPE", "MERCEDES-BENZ", "AMGGT");
+				AddCustomer("COUPE - MERCEDES - AMG-GT");			
+				AMGGT.setVisible(true);
+				
+			}if(e.getSource() == MINI) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				MINI.setVisible(true);
+				COOPER.setVisible(true);
+		
+				ClassMakePrint("MINI", "MINI-COOPER");
+				
+			}if(e.getSource() == COOPER) {
+				
+				findModel("COUPE", "MINI", "MINI-COOPER");
+				AddCustomer("COUPE - MINI - COOPER");			
+				COOPER.setVisible(true);
+				
+			}if(e.getSource() == NISSAN) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				NISSAN.setVisible(true);
+				Z370.setVisible(true);
+		
+				ClassMakePrint("NISSAN", "370z");
+				
+			}if(e.getSource() == Z370) {
+				
+				findModel("COUPE", "NISSAN", "370Z");
+				AddCustomer("COUPE - NISSAN - 370Z");			
+				Z370.setVisible(true);
+				
+			}if(e.getSource() == SUBARU) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				SUBARU.setVisible(true);
+				BRZ.setVisible(true);
+		
+				ClassMakePrint("SUBARU", "BRZ");
+				
+			}if(e.getSource() == BRZ) {
+				
+				findModel("COUPE", "SUBARU", "BRZ");
+				AddCustomer("COUPE - SUBARU - BRZ");			
+				BRZ.setVisible(true);
+				
+			}if(e.getSource() == TOYOTA) {
+				
+				MakeSelected();
+				
+				SetInvis();
+				TOYOTA.setVisible(true);
+				T86.setVisible(true);
+		
+				ClassMakePrint("TOYOTA", "86");
+				
+			}if(e.getSource() == T86) {
+				
+				findModel("COUPE", "TOYOTA", "86");
+				AddCustomer("COUPE - TOYOTA - 86");			
+				T86.setVisible(true);
+				
+			}
 			
 		
 		
-		if(e.getSource() == CHEVROLET) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(true);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "CHEVROLET");
-		}
-		if(e.getSource() == CHRYSLER) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(true);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "CHRYSLER");
-		}
-		if(e.getSource() == DODGE) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(true);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "DODGE");
-		}
-		if(e.getSource() == FORD) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(true);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "FORD");
-		}
-		if(e.getSource() == MAZDA) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(true);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "MAZDA");
-		}
-		if(e.getSource() == MINI) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(true);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "MINI");
-		}
-		if(e.getSource() == MERCEDES) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(true);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "MERCEDES-BENZ");
-		}
-		if(e.getSource() == NISSAN) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(true);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "NISSAN");
-		}
-		if(e.getSource() == SUBARU) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(true);
-			TOYOTA.setVisible(false);
-			ClassMakePrint("COUPE", "SUBARU");
-			}
-		if(e.getSource() == TOYOTA) {
-			MakeSelected();
-			
-			AUDI.setVisible(false);
-			ACURA.setVisible(false);
-			CHEVROLET.setVisible(false);
-			CHRYSLER.setVisible(false);
-			DODGE.setVisible(false);
-			FORD.setVisible(false);
-			MAZDA.setVisible(false);
-			MERCEDES.setVisible(false);
-			NISSAN.setVisible(false);
-			MINI.setVisible(false);
-			SUBARU.setVisible(false);
-			TOYOTA.setVisible(true);
-			ClassMakePrint("COUPE", "TOYOTA");
-			}
+		
 		/*
 		 * 
 		 * 	BEGIN COMPACT BUTTONS -------------------------------------------
@@ -2344,14 +2668,125 @@ public class GUI extends JFrame {
 		}
 		
 		if(e.getSource() == ACURA2) {
-			START.setVisible(true);
-			text.setVisible(true);
-			CLEAR.setVisible(true);
 			
+			MakeSelected();
+			SetInvis();
 			
+			ACURA2.setVisible(true);
+			ILX.setVisible(true);
+			TLX.setVisible(true);
+			ClassMakePrint("COMPACT", "ACURA");
 			
-			
+			}if(e.getSource() == ILX) {
+				
+				findModel("COMPACT", "ACURA", "ILX");
+				AddCustomer("COMPACT - AURA - ILX");			
+				ILX.setVisible(true);
+				
+			}if(e.getSource() == TLX) {
+				
+				findModel("COMPACT", "ACURA", "TLX");
+				AddCustomer("COMPACT - ACURA - TLX");			
+				TLX.setVisible(true);
+				
 			}
+		
+		if(e.getSource() == AUDI2) {
+				
+				MakeSelected();
+				SetInvis();
+				
+				AUDI2.setVisible(true);
+				A4.setVisible(true);
+				A5.setVisible(true);
+				S5.setVisible(true);
+				S3.setVisible(true);
+				Q3.setVisible(true);
+				A3.setVisible(true);
+				
+				ClassMakePrint("COMPACT", "AUDI");
+				
+			}if(e.getSource() == A4) {
+				
+				findModel("COMPACT", "AUDI", "A4");
+				AddCustomer("COMPACT - AUDI - A4");			
+				A4.setVisible(true);
+				
+			}if(e.getSource() == A5) {
+				
+				findModel("COMPACT", "AUDI", "A5");
+				AddCustomer("COMPACT - AUDI - A5");			
+				A5.setVisible(true);
+				
+			}if(e.getSource() == S5) {
+				
+				findModel("COMPACT", "AUDI", "S5");
+				AddCustomer("COMPACT - AUDI - S5");			
+				S5.setVisible(true);
+				
+			}if(e.getSource() == S3) {
+				
+				findModel("COMPACT", "AUDI", "S3");
+				AddCustomer("COMPACT - AUDI - S3");			
+				S3.setVisible(true);
+				
+			}if(e.getSource() == Q3) {
+				
+				findModel("COMPACT", "AUDI", "Q3");
+				AddCustomer("COMPACT - AUDI - Q3");			
+				Q3.setVisible(true);
+				
+			}if(e.getSource() == A3) {
+				
+				findModel("COMPACT", "AUDI", "A3");
+				AddCustomer("COMPACT - AUDI - A3");			
+				A3.setVisible(true);
+				
+			}
+			
+			if(e.getSource() == BMW2 || e.getSource() == BUICK2 || e.getSource() == CADILLAC2 || e.getSource() == CHEVROLET2 || e.getSource() == FORD2 ||
+					e.getSource() == HONDA2 || e.getSource() == HYUNDAI2 | e.getSource() == INFINITI2 ||
+					e.getSource() == KIA2 || e.getSource() == LEXUS2 || e.getSource() == MAZDA2 ||
+					e.getSource() == MERCEDES2 || e.getSource() == MITSUBISHI2 || e.getSource() == NISSAN2 ||
+					e.getSource() == SUBARU2 || e.getSource() == TOYOTA2 || e.getSource() == VOLKSWAGEN2 ||
+					e.getSource() == VOLVO2) {
+					
+				MakeSelected();
+				SetInvis();
+				
+					ACURA2.setVisible(true);
+					AUDI2.setVisible(true);
+					BMW2.setVisible(true);
+					BUICK2.setVisible(true);
+					CADILLAC2.setVisible(true);
+					CHEVROLET2.setVisible(true);
+					FORD2.setVisible(true);
+					HONDA2.setVisible(true);
+					HYUNDAI2.setVisible(true);
+					INFINITI2.setVisible(true);
+					KIA2.setVisible(true);
+					LEXUS2.setVisible(true);
+					MAZDA2.setVisible(true);
+					MERCEDES2.setVisible(true);
+					MITSUBISHI2.setVisible(true);
+					NISSAN2.setVisible(true);
+					SUBARU2.setVisible(true);
+					TOYOTA2.setVisible(true);
+					VOLKSWAGEN2.setVisible(true);			
+					VOLVO2.setVisible(true);
+						
+					
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
+							
+							
 		
 		
 		/*
@@ -2389,6 +2824,51 @@ public class GUI extends JFrame {
 				VOLVO3.setVisible(true);
 			
 			}
+			
+			if(e.getSource() == AUDI3 || e.getSource() == BMW3 || e.getSource() == BUICK3 || e.getSource() == CADILLAC3 || 
+					e.getSource() == CHEVROLET3 || e.getSource() == CHRYSLER3 || e.getSource() == DODGE3 ||  
+					e.getSource() == FORD3 || e.getSource() == HONDA3 | e.getSource() == HYUNDAI3 ||
+					e.getSource() == KIA3 || e.getSource() == LEXUS3 || e.getSource() == LINCOLN3 ||
+					e.getSource() == MAZDA3 || e.getSource() == MERCEDES3 || e.getSource() == MINI3 ||
+					e.getSource() == NISSAN3 || e.getSource() == SUBARU3 || e.getSource() == TOYOTA3 ||
+					e.getSource() == VOLKSWAGEN3 || e.getSource() == VOLVO3 ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				AUDI3.setVisible(true);
+				BMW3.setVisible(true);
+				BUICK3.setVisible(true);
+				CADILLAC3.setVisible(true);
+				CHEVROLET3.setVisible(true);
+				CHRYSLER3.setVisible(true);
+				DODGE3.setVisible(true);
+				FORD3.setVisible(true);
+				HONDA3.setVisible(true);
+				HYUNDAI3.setVisible(true);
+				INFINITI3.setVisible(true);
+				KIA3.setVisible(true);
+				LEXUS3.setVisible(true);
+				LINCOLN3.setVisible(true);
+				MAZDA3.setVisible(true);
+				MERCEDES3.setVisible(true);
+				MINI3.setVisible(true);
+				NISSAN3.setVisible(true);
+				SUBARU3.setVisible(true);
+				TOYOTA3.setVisible(true);
+				VOLKSWAGEN3.setVisible(true);			
+				VOLVO3.setVisible(true);
+						
+					
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		
 		/*
@@ -2414,6 +2894,35 @@ public class GUI extends JFrame {
 				VOLVO4.setVisible(true);
 			
 			}
+			
+			if(e.getSource() == AUDI4 || e.getSource() == CHEVROLET4 || e.getSource() == HONDA4 || e.getSource() == INFINITI4 || 
+					e.getSource() == KIA4 || e.getSource() == MERCEDES4 || e.getSource() == NISSAN4 ||  
+					e.getSource() == SUBARU4 || e.getSource() == VOLKSWAGEN4 | e.getSource() == VOLVO4 ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				AUDI4.setVisible(true);
+				CHEVROLET4.setVisible(true);
+				HONDA4.setVisible(true);
+				INFINITI4.setVisible(true);
+				KIA4.setVisible(true);
+				MERCEDES4.setVisible(true);
+				NISSAN4.setVisible(true);
+				SUBARU4.setVisible(true);
+				VOLKSWAGEN4.setVisible(true);			
+				VOLVO4.setVisible(true);
+						
+					
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		/*
 		 * 
@@ -2452,7 +2961,56 @@ public class GUI extends JFrame {
 				VOLVO5.setVisible(true);
 				
 			}
+			
+			if(e.getSource() == ACURA5 || e.getSource() == AUDI5 || e.getSource() == BMW5 || e.getSource() == BUICK5 ||
+					e.getSource() == CADILLAC5 || e.getSource() == CHEVROLET5 || e.getSource() == DODGE5 || 
+					e.getSource() == FORD5 || e.getSource() == GMC5 | e.getSource() == HONDA5 ||
+					e.getSource() == HYUNDAI5 || e.getSource() == INFINITI5 | e.getSource() == JEEP5 ||
+					e.getSource() == KIA5 || e.getSource() == LANDROVER5 || e.getSource() == LEXUS5 || 
+					e.getSource() == LINCOLN5 || e.getSource() == MAZDA5 || e.getSource() == MERCEDES5 ||
+					e.getSource() == MITSUBISHI5 ||e.getSource() == NISSAN5 || e.getSource() == SUBARU5 || 
+					e.getSource() == VOLKSWAGEN5 || e.getSource() == VOLVO5 ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				ACURA5.setVisible(true);
+				AUDI5.setVisible(true);
+				BMW5.setVisible(true);
+				BUICK5.setVisible(true);
+				CADILLAC5.setVisible(true);
+				CHEVROLET5.setVisible(true);
+				DODGE5.setVisible(true);
+				FORD5.setVisible(true);
+				GMC5.setVisible(true);
+				HONDA5.setVisible(true);
+				HYUNDAI5.setVisible(true);
+				INFINITI5.setVisible(true);
+				JEEP5.setVisible(true);
+				KIA5.setVisible(true);
+				LANDROVER5.setVisible(true);
+				LEXUS5.setVisible(true);
+				LINCOLN5.setVisible(true);
+				MAZDA5.setVisible(true);
+				MERCEDES5.setVisible(true);
+				MITSUBISHI5.setVisible(true);
+				NISSAN5.setVisible(true);
+				SUBARU5.setVisible(true);
+				VOLKSWAGEN5.setVisible(true);			
+				VOLVO5.setVisible(true);
+						
+					
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
+			
 		
 		/*
 		 * 
@@ -2485,6 +3043,46 @@ public class GUI extends JFrame {
 				VOLVO6.setVisible(true);
 				
 			}
+			
+			if(		e.getSource() == AUDI6 || e.getSource() == BMW6 || e.getSource() == BUICK6 ||
+					e.getSource() == CADILLAC6 || e.getSource() == CHEVROLET6 || e.getSource() == DODGE6 || 
+					e.getSource() == FORD6 || e.getSource() == GMC6 || e.getSource() == INFINITI6 | e.getSource() == JEEP6 ||
+					e.getSource() == LANDROVER6 || e.getSource() == LEXUS6 || 
+					e.getSource() == LINCOLN6 || e.getSource() == MERCEDES6 ||e.getSource() == NISSAN6 || e.getSource() == TOYOTA6 ||
+					e.getSource() == VOLKSWAGEN6 || e.getSource() == VOLVO6 ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				AUDI6.setVisible(true);
+				BMW6.setVisible(true);
+				BUICK6.setVisible(true);
+				CADILLAC6.setVisible(true);
+				CHEVROLET6.setVisible(true);
+				DODGE6.setVisible(true);
+				FORD6.setVisible(true);
+				GMC6.setVisible(true);
+				INFINITI6.setVisible(true);
+				JEEP6.setVisible(true);
+				LANDROVER6.setVisible(true);
+				LEXUS6.setVisible(true);
+				LINCOLN6.setVisible(true);
+				MERCEDES6.setVisible(true);
+				NISSAN6.setVisible(true);
+				TOYOTA6.setVisible(true);
+				VOLKSWAGEN6.setVisible(true);			
+				VOLVO6.setVisible(true);
+						
+					
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		
 		/*
@@ -2507,6 +3105,28 @@ public class GUI extends JFrame {
 
 				
 			}
+			
+			if(e.getSource() == CHRYSLER7 || e.getSource() == DODGE7 || e.getSource() == HONDA7 || e.getSource() == NISSAN7 || 
+					e.getSource() == KIA7 || e.getSource() == TOYOTA7  ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				CHRYSLER7.setVisible(true);
+				DODGE7.setVisible(true);
+				HONDA7.setVisible(true);
+				KIA7.setVisible(true);
+				NISSAN7.setVisible(true);
+				TOYOTA7.setVisible(true);	
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		
 		/*
@@ -2525,6 +3145,23 @@ public class GUI extends JFrame {
 				
 				
 			}
+			
+			if(e.getSource() == CHEVROLET8 || e.getSource() == FORD8  ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				CHEVROLET8.setVisible(true);
+				FORD8.setVisible(true);	
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		/*
 		 * 
@@ -2546,6 +3183,29 @@ public class GUI extends JFrame {
 				TOYOTA9.setVisible(true);
 				
 			}
+			
+			if(e.getSource() == CHEVROLET9 || e.getSource() == DODGE9 || e.getSource() == FORD9 || e.getSource() == GMC9 || 
+					e.getSource() == HONDA9 || e.getSource() == NISSAN9 || e.getSource() == TOYOTA9  ) {
+					
+				MakeSelected();
+				SetInvis();
+				
+				CHEVROLET9.setVisible(true);
+				DODGE9.setVisible(true);
+				FORD9.setVisible(true);
+				GMC9.setVisible(true);
+				HONDA9.setVisible(true);
+				NISSAN9.setVisible(true);
+				TOYOTA9.setVisible(true);	
+						
+					TEMP1.setVisible(true);
+					TEMP2.setVisible(true);
+					TEMP3.setVisible(true);
+					TEMP4.setVisible(true);
+					TEMP5.setVisible(true);
+					TEMP6.setVisible(true);
+						
+						}
 		
 		}
 	
@@ -2766,7 +3426,7 @@ public class GUI extends JFrame {
 	    			CarManager.SavedCar.remove(24);
 	    			text.append("You have removed car 25");
 	    			}
-	    		}
+	    		} //else text.append(" !INVALID SELECTION!  \n --Max List Size 25-- ");
 	    	
 	    }
 	    	
